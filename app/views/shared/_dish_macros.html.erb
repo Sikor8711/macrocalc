@@ -1,0 +1,48 @@
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Ingridient</th>
+    <th scope="col">Volume ml/g</th>
+    <th scope="col">Calories Kcal</th>
+    <th scope="col">Fat g</th>
+    <th scope="col">Carbs g</th>
+    <th scope="col">Proteins g</th>
+  </tr>
+</thead>
+<tbody>
+  <% @var1 = 0 %>
+  <% @var2 = 0 %>
+  <% @var3 = 0 %>
+  <% @var4 = 0 %>
+  <% @var5 = 0 %>
+  <% @dish.ingridient_ids.each_with_index do |p, i|%>
+  <% @ing = Ingridient.find(p) %>
+  <tr>
+
+    <th scope="row"> <%= @ind=i+1 %> </th>
+
+    <td><%= @ing.name %></td>
+    <td><%= @ing.volume %>  </td>
+    <td><%= @ing.cals %></td>
+    <td><%= @ing.fats %></td>
+    <td><%= @ing.carbs %></td>
+    <td><%= @ing.proteins %></td>
+    <% @var1=@var1 + @ing.volume %>
+    <% @var2=@var2 + @ing.cals %>
+    <% @var3=@var3 + @ing.fats %>
+    <% @var4=@var4 + @ing.carbs %>
+    <% @var5=@var5 + @ing.proteins %>
+  </tr>
+  <% end %>
+  <tr>
+    <th scope="row">Total</th>
+    <td></td>
+    <td><strong><%= @var1 %></strong></td>
+    <td><strong><%= @var2 %></strong></td>
+    <td><strong><%= @var3 %></strong></td>
+    <td><strong><%= @var4 %></strong></td>
+    <td><strong><%= @var5 %></strong></td>
+  </tr>
+</tbody>
+
+</table>

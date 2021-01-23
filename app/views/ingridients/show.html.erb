@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ingridient.name %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @ingridient.volume %>
+</p>
+
+<p>
+  <strong>Cals:</strong>
+  <%= @ingridient.cals %>
+</p>
+
+<p>
+  <strong>Fats:</strong>
+  <%= @ingridient.fats %>
+</p>
+
+<p>
+  <strong>Carbs:</strong>
+  <%= @ingridient.carbs %>
+</p>
+
+<p>
+  <strong>Proteins:</strong>
+  <%= @ingridient.proteins %>
+</p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= Dish.find(@ingridient.dish_id).name %>
+</p>
+
+<%= link_to 'Edit', edit_ingridient_path(@ingridient) %> |
+<%= link_to 'Back', ingridients_path %>

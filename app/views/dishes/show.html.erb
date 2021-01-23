@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+
+
+  <h1><%= @dish.name %></h1><br>
+<p>
+  <strong>Macros:</strong><br>
+  <table class="table">
+  <%= render 'shared/dish_macros' %>
+</p>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>

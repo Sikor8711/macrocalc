@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with(model: ingridient) do |form| %>
+        <% if ingridient.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(ingridient.errors.count, "error") %> prohibited this ingridient from being saved:</h2>
+            <ul>
+              <% ingridient.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= form.label :volume, "Volume ml/g" %>
+          <%= form.number_field :volume %>
+        </div>
+
+        <div class="field">
+          <%= form.label :cals %>
+          <%= form.number_field :cals %>
+        </div>
+
+        <div class="field">
+          <%= form.label :fats %>
+          <%= form.number_field :fats %>
+        </div>
+
+        <div class="field">
+          <%= form.label :carbs %>
+          <%= form.number_field :carbs %>
+        </div>
+
+        <div class="field">
+          <%= form.label :proteins %>
+          <%= form.number_field :proteins %>
+        </div>
+
+        <div class="field">
+          <%= form.label :dish_id %>
+          <%= form.collection_select :dish_id, Dish.order(:name), :id, :name %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col">
+      <%= render 'macrocalc' %>
+    </div>
+  </div>
+</div>
