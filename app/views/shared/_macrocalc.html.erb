@@ -1,0 +1,30 @@
+<%= form_for @mycalc, method: :mycalc, remote: true do |form| %>
+<div class="field">
+  <%= form.label "Volume in ml or g:" %>
+  <%= form.number_field @ingvolume, step: 1 %>
+</div>
+<div class="field">
+  <%= form.label "Carbs per 100 ml/g" %>
+  <%= form.number_field :carbsper, step: 1 %>
+</div>
+<div class="field">
+  <%= form.label "Kcals per 100 ml/g" %>
+  <%= form.number_field :calsper, step: 1 %>
+</div>
+<div class="field">
+  <%= form.label "Proteins per 100 ml/g" %>
+  <%= form.number_field :proteinsper, step: 1 %>
+</div>
+<div class="field">
+  <%= form.label "fatss per 100 ml/g" %>
+  <%= form.number_field :fatsper, step: 1 %>
+</div>
+<div class="actions">
+  <%= form.submit %>
+</div>
+<div class="field">
+  <%= form.label "Carbs in your value" %>
+  <%= @ingvolume %>
+</div>
+
+<% end %>

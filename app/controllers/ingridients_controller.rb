@@ -1,5 +1,4 @@
 class IngridientsController < ApplicationController
-  require '/lib/mycalc/calc.rb'
   before_action :set_ingridient, only: %w[ show edit update destroy ]
 
   # GET /ingridients
@@ -62,6 +61,11 @@ class IngridientsController < ApplicationController
     end
   end
 
+  def mycalc
+    params[:ingvolume]
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ingridient
@@ -71,5 +75,9 @@ class IngridientsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def ingridient_params
       params.require(:ingridient).permit(:name, :volume, :cals, :fats, :carbs, :proteins, :dish_id)
+    end
+
+    def calc_params
+      params.permit(:ingvolume, :carbsper, :calsper, :proteinsper, :fatsper)
     end
 end
